@@ -1,0 +1,144 @@
+\documentclass[a4paper, landscape, 9pt]{jarticle} % フォントサイズを9ptに設定
+\usepackage{listings}
+\usepackage{jlisting}
+\usepackage{xcolor}
+\usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry} % マージンを設定
+\usepackage{multicol} % 複数列のためのパッケージ
+
+% C++スタイルの定義
+\lstdefinestyle{cpp}{
+    language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\bfseries\color{green!40!black},
+    commentstyle=\itshape\color{red!80!black},
+    stringstyle=\color{purple!40!black},
+    identifierstyle=\color{blue},
+    numbers=none, % 行番号を表示しない
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    captionpos=b,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false
+}
+
+% Pythonスタイルの定義
+\lstdefinestyle{python}{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\bfseries\color{blue},
+    commentstyle=\itshape\color{green!40!black},
+    stringstyle=\color{red},
+    identifierstyle=\color{black},
+    numbers=none, % 行番号を表示しない
+    backgroundcolor=\color{gray!10},
+    frame=single,
+    breaklines=true,
+    captionpos=b,
+    tabsize=4,
+    showspaces=false,
+    showstringspaces=false,
+    morekeywords={self} % Pythonのキーワードに'self'を追加
+}
+
+\lstset{style=cpp} % デフォルトのスタイルをC++に設定
+
+\title{\vspace{-4ex}\huge{ICPC template}} % タイトルを設定
+\author{} % 著者名を設定
+\date{} % 日付を設定
+
+\begin{document}
+
+
+
+\begin{multicols*}{3} % 3列に分割（*を使うと全ページで適用）
+    \maketitle
+    \vspace{-25mm}
+    \section*{Example C++ Code 1}
+    \begin{lstlisting}
+    #include <iostream>
+    using namespace std;
+
+    int main() {
+        cout << "Hello, World!" << endl;
+        return 0;
+    }
+    \end{lstlisting}
+
+    \section*{Example C++ Code 2}
+    \begin{lstlisting}
+    #include <vector>
+    #include <algorithm>
+    using namespace std;
+
+    int main() {
+        vector<int> v = {1, 2, 3, 4, 5};
+        sort(v.begin(), v.end(), greater<int>());
+        for (int i : v) {
+            cout << i << " ";
+        }
+        cout << endl;
+        return 0;
+    }
+    \end{lstlisting}
+
+    \section*{Example C++ Code 3}
+    \begin{lstlisting}
+    #include <map>
+    #include <string>
+    using namespace std;
+
+    int main() {
+        map<string, int> ages;
+        ages["Alice"] = 30;
+        ages["Bob"] = 25;
+        ages["Charlie"] = 35;
+
+        for (const auto &entry : ages) {
+            cout << entry.first << ": " << entry.second << endl;
+        }
+        return 0;
+    }
+    \end{lstlisting}
+
+
+    % Pythonのセクションに切り替える
+    \lstset{style=python}
+
+    \section*{Example Python Code 1}
+    \begin{lstlisting}
+    def hello_world():
+        print("Hello, World!")
+
+    if __name__ == "__main__":
+        hello_world()
+    \end{lstlisting}
+
+    \section*{Example Python Code 2}
+    \begin{lstlisting}
+    def sort_descending(numbers):
+        return sorted(numbers, reverse=True)
+
+    numbers = [1, 2, 3, 4, 5]
+    sorted_numbers = sort_descending(numbers)
+    print(sorted_numbers)
+    \end{lstlisting}
+
+    \section*{Example Python Code 3}
+    \begin{lstlisting}
+    class Person:
+        def __init__(self, name, age):
+            self.name = name
+            self.age = age
+
+        def greet(self):
+            print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+
+    alice = Person("Alice", 30)
+    alice.greet()
+    \end{lstlisting}
+
+\end{multicols*}
+
+\end{document}
