@@ -42,7 +42,7 @@
     morekeywords={self} % Pythonのキーワードに'self'を追加
 }
 
-\lstset{style=cpp} % デフォルトのスタイルをC++に設定
+\lstset{style=cpp} % デフ}ォルトのスタイルをC++に設定
 
 \title{\vspace{-4ex}\huge{ICPC template}} % タイトルを設定
 \author{} % 著者名を設定
@@ -55,18 +55,22 @@
 \begin{multicols*}{3} % 3列に分割（*を使うと全ページで適用）
     \maketitle
     \vspace{-25mm}
+    \tableofcontents
 
-    \section*{C++ Compiler}
+    \newpage
+
+    \section{C++ Preparation}
+    \subsection{C++ Compiler}
     \begin{lstlisting}
     g++ -std=c++17 test.cpp -o
     \end{lstlisting}
 
-    \section*{C++ Execution}
+    \subsection{C++ Execution}
     \begin{lstlisting}
     ./test.out <input> output
     \end{lstlisting}
 
-    \section*{C++ Template}
+    \subsection{C++ Template}
     \begin{lstlisting}
     #include <bits/stdc++.h>
     using namespace std;
@@ -94,7 +98,27 @@
     }
     \end{lstlisting}
 
-    \section*{Union-Find}
+    \section{データ構造}
+    \subsection{二分探索}
+    \begin{lstlisting}
+    vector<int> a = { 1,4,4,7,7,8,8,11,13,19};
+    // lower_bound:key以上の値が初めて現れる位置
+    auto iter = lower_bound(all(a),4);
+    // key以上の最小の値を出力
+    cout << *iter << endl; // 4
+    // key以上の最小の値が初めて現れる位置を出力
+    cout << a.begin() - iter << endl; // 1
+
+    // upper_bound:keyより大きい値が初めて現れる位置
+    auto iter1 = upper_bound(all(a), 4);
+    // keyより大きい最小の値を出力
+    cout << *iter1 << endl; // 7
+    // keyより大きい最小の値が初出する位置を出力
+    cout << a.begin() - iter1 << endl; // 3
+
+    \end{lstlisting}
+
+    \subsection{Union-Find}
     \begin{lstlisting}
     // Union-Find
     // グリッドでUFを使う時,(x,y)に対して使うなら(x-1)*W+(y-1)でハッシュ化できる．
@@ -156,6 +180,67 @@
     }
     \end{lstlisting}
 
+    \subsection{BIT}
+    \begin{lstlisting}
+    // 数列a(a[0],a[1],…,a[n-1])についての区間和と点更新を扱う
+    // 区間和,点更新,二分探索はO(log{n})
+    class BIT {
+    public:
+        //データの長さ
+        ll n;
+        //データの格納先
+        vector<ll> a;
+        //コンストラクタ
+        BIT(ll n):n(n),a(n+1,0){}
+    
+        //a[i]にxを加算する
+        void add(ll i,ll x){
+            i++;
+            if(i==0) return;
+            for(ll k=i;k<=n;k+=(k & -k)){
+                a[k]+=x;
+            }
+        }
+    
+        //a[i]+a[i+1]+…+a[j]を求める
+        ll sum(ll i,ll j){
+            return sum_sub(j)-sum_sub(i-1);
+        }
+    
+        //a[0]+a[1]+…+a[i]を求める
+        ll sum_sub(ll i){
+            i++;
+            ll s=0;
+            if(i==0) return s;
+            for(ll k=i;k>0;k-=(k & -k)){
+                s+=a[k];
+            }
+            return s;
+        }
+    
+        //a[0]+a[1]+…+a[i]>=xとなる最小のiを求める(任意のkでa[k]>=0が必要)
+        ll lower_bound(ll x){
+            if(x<=0){
+                //xが0以下の場合は該当するものなし→0を返す
+                return 0;
+            }else{
+                ll i=0;ll r=1;
+                //最大としてありうる区間の長さを取得する
+                //n以下の最小の二乗のべき(BITで管理する数列の区間で最大のもの)を求める
+                while(r<n) r=r<<1;
+                //区間の長さは調べるごとに半分になる
+                for(int len=r;len>0;len=len>>1) {
+                    //その区間を採用する場合
+                    if(i+len<n && a[i+len]<x){
+                        x-=a[i+len];
+                        i+=len;
+                    }
+                }
+                return i;
+            }
+        }
+    };
+    \end{lstlisting}
     \section*{Example C++ Code 3}
     \begin{lstlisting}
     #include <map>

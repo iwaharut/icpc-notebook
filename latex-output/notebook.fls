@@ -84,6 +84,13 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
+INPUT latex-output/notebook.toc
+INPUT latex-output/notebook.toc
+INPUT latex-output/notebook.toc
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
+OUTPUT latex-output/notebook.toc
+OUTPUT latex-output/notebook.dvi
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
@@ -93,5 +100,4 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmitt10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
-OUTPUT latex-output/notebook.dvi
 INPUT latex-output/notebook.aux
