@@ -1,10 +1,10 @@
-PWD /Users/iwaharut/Desktop/icpc/notebook
+PWD /Users/iwaharut/Desktop/icpc notebook
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2023/texmf-var/web2c/euptex/platex.fmt
-INPUT /Users/iwaharut/Desktop/icpc/notebook/notebook.tex
+INPUT /Users/iwaharut/Desktop/icpc notebook/notebook.tex
 OUTPUT latex-output/notebook.log
 INPUT /usr/local/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
 INPUT /usr/local/texlive/2023/texmf-dist/tex/platex/base/jarticle.cls
@@ -89,6 +89,7 @@ INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tgoth8.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth8.tfm
+INPUT /usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmitt10.tfm
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty
 INPUT /usr/local/texlive/2023/texmf-dist/tex/latex/listings/lstlang1.sty

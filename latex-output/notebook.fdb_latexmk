@@ -1,11 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1719155641.99104 "latex-output/notebook.dvi" "latex-output/notebook.pdf" "latex-output/notebook" 1719155642.22479 0
-  "latex-output/notebook.dvi" 1719155641.97794 31764 7cfa384ba93d1aa8960ea126d9ac5769 "latex"
+["dvipdf"] 1719203770.3705 "latex-output/notebook.dvi" "latex-output/notebook.pdf" "latex-output/notebook" 1719203770.5889 0
+  "latex-output/notebook.dvi" 1719203770.34989 78036 779300d9b4b2da3760bcd98276c94ab2 "latex"
   (generated)
   "latex-output/notebook.pdf"
   (rewritten before read)
-["latex"] 1719155641.71435 "/Users/iwaharut/Desktop/icpc/notebook/notebook.tex" "latex-output/notebook.dvi" "notebook" 1719155642.22437 0
-  "/Users/iwaharut/Desktop/icpc/notebook/notebook.tex" 1719155641.5522 3590 edba1a38b0e6d1561f681a93d2d8fedd ""
+["latex"] 1719203769.97437 "/Users/iwaharut/Desktop/icpc notebook/notebook.tex" "latex-output/notebook.dvi" "notebook" 1719203770.58844 0
+  "/Users/iwaharut/Desktop/icpc notebook/notebook.tex" 1719203769.80762 5971 d40a2b192df755ffd5a68be49773b23d ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm" 1463434352 1196 5981e79c37b2cfd27b3612a6783cd4b6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth8.tfm" 1463434352 1196 f76ab7ae43ed1dfe29b9e6ec2933fdb4 ""
@@ -17,6 +17,7 @@
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin10.tfm" 1463434352 856 39c171483fe1bb7d0e1368980c0c205b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/tmin8.tfm" 1463434352 856 bdef40bcf3aed4751efa9be9bfa6eb4b ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmitt10.tfm" 1136768653 768 2297ad2ac26f37e67f756dad27c77d68 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
@@ -50,8 +51,8 @@
   "/usr/local/texlive/2023/texmf-var/web2c/euptex/platex.fmt" 1708840765 8156258 b430bfcaa1694f54d6e3eeba362a2f2c ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "jlisting.sty" 1513299536 6230 9fa8fe97d5afbd5a433990256cc4d5a3 ""
-  "latex-output/notebook.aux" 1719155641.9776 32 3985256e7290058c681f74d7a3565a19 "latex"
-  "notebook.tex" 1719155641.5522 3590 edba1a38b0e6d1561f681a93d2d8fedd ""
+  "latex-output/notebook.aux" 1719203770.34937 32 044b7f8fc9779af7531264e0c5c84b6d "latex"
+  "notebook.tex" 1719203769.80762 5971 d40a2b192df755ffd5a68be49773b23d ""
   (generated)
   "latex-output/notebook.aux"
   "latex-output/notebook.dvi"

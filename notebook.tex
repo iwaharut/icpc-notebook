@@ -55,31 +55,104 @@
 \begin{multicols*}{3} % 3列に分割（*を使うと全ページで適用）
     \maketitle
     \vspace{-25mm}
-    \section*{Example C++ Code 1}
+
+    \section*{C++ Compiler}
     \begin{lstlisting}
-    #include <iostream>
+    g++ -std=c++17 test.cpp -o
+    \end{lstlisting}
+
+    \section*{C++ Execution}
+    \begin{lstlisting}
+    ./test.out <input> output
+    \end{lstlisting}
+
+    \section*{C++ Template}
+    \begin{lstlisting}
+    #include <bits/stdc++.h>
     using namespace std;
+    using ll = long long;
+    using ull = unsigned long long;
+    using Graph = vector<vector<int>>;
+    constexpr int INF = 1e9;
+    constexpr ll LLINF = 4e18;
+    #define for_(i,a,b) for(int i=(a);i<(b);++i)
+    #define rep(i, n) for_(i, 0, n)
+    #define all(a) (a).begin(), (a).end()
+    #define rall(a) (a).rbegin(), (a).rend()
+
+    //4方向
+    int dx[4] = {1, 0, -1, 0};
+    int dy[4] = {0, -1, 0, 1};
+
+    //8方向
+    int ddx[8] = {1,1,1,0,0,-1,-1,-1}; 
+    int ddy[8] = {1,0,-1,1,-1,1,0,-1};
 
     int main() {
-        cout << "Hello, World!" << endl;
+        
         return 0;
     }
     \end{lstlisting}
 
-    \section*{Example C++ Code 2}
+    \section*{Union-Find}
     \begin{lstlisting}
-    #include <vector>
-    #include <algorithm>
-    using namespace std;
-
-    int main() {
-        vector<int> v = {1, 2, 3, 4, 5};
-        sort(v.begin(), v.end(), greater<int>());
-        for (int i : v) {
-            cout << i << " ";
+    // Union-Find
+    // グリッドでUFを使う時,(x,y)に対して使うなら(x-1)*W+(y-1)でハッシュ化できる．
+    struct UnionFind {
+        vector<int> par, rank, siz;
+        // 構造体の初期化
+        UnionFind(int n) : par(n,-1), rank(n,0), siz(n,1) { }
+        // 根を求める
+        int root(int x) {
+        if (par[x]==-1) return x;
+        else return par[x] = root(par[x]);
         }
-        cout << endl;
-        return 0;
+        // x と y が同じグループに属するか (= 根が一致するか)
+        bool issame(int x, int y) {
+            return root(x)==root(y);
+        }
+        // x を含むグループと y を含むグループを併合する
+        bool unite(int x, int y) {
+            int rx = root(x), ry = root(y);
+            if (rx==ry) return false;
+            // union by rank
+            if (rank[rx]<rank[ry]) swap(rx, ry);
+            par[ry] = rx; // ry を rx の子とする
+            if (rank[rx]==rank[ry]) rank[rx]++;
+            siz[rx] += siz[ry];
+            return true;
+        }
+        // x を含む根付き木のサイズを求める
+        int size(int x) {
+            return siz[root(x)];
+        }
+    };
+    
+    // union-find木がいくつの連結成分からなるかを返す
+    long long partial(UnionFind tree){
+        long long n = tree.siz.size();
+        vector<bool> seen(n, false);
+        long long ans = 0;
+        for (long long i = 0; i < n; i++){
+            if (seen[tree.root(i)]) continue;
+            seen[tree.root(i)] = true;
+            ans++;
+        }
+        return ans;
+    }
+    
+    // 無向グラフGがいくつの連結成分からなるかを返す
+    long long partial(Graph &G){
+        long long siz = G.size();
+        UnionFind ki(siz);
+        for (long long i = 0; i < siz; i++){
+            long long siz2 = G[i].size();
+            for (long long j = 0; j < siz2; j++){
+                ki.unite(i, G[i][j]);
+            }
+        }
+        long long ret = partial(ki);
+        return ret;
     }
     \end{lstlisting}
 
