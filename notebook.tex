@@ -99,11 +99,69 @@
     \end{lstlisting}
 
     \section{データ構造}
-    \subsection{set}
-    \subsection{map}
     \subsection{stack}
+    \begin{lstlisting}
+    stack<int> st;
+    // [1, 2, 3]を追加
+    st.push(1);
+    st.push(2);
+    cout << st.top() << endl; // 2
+    st.push(3);
+    st.pop(); // 3を削除
+    st.pop(); // 2を削除
+    cout << st.top() << endl; // 1
+    if(st.empty()) // 空ならtrue
+    \end{lstlisting}
+
     \subsection{queue}
+    \begin{lstlisting}
+    queue<int> que;
+    // [1, 2, 3]を追加
+    que.push(1);
+    que.push(2);
+    cout << que.front() << endl; // 1
+    que.push(3);
+    que.pop(); // 1を削除
+    que.pop(); // 2を削除
+    cout << que.front() << endl; // 3
+    \end{lstlisting}
+
     \subsection{priority queue}
+    \begin{lstlisting}
+    // 最大値が先頭にくるキュー
+    priority_queue<int> pq;
+    // 最小値が先頭にくるキュー
+    priority_queue<int,vector<int>,greater<int>> pq;
+    // [1, 3, 5, 6]を追加
+    pq.push(1);
+    pq.push(3);
+    cout << pq.top() << endl; // 3
+    pq.push(5);
+    pq.push(6);
+    pq.pop(); // 6を削除
+    cout << pq.top() << endl; // 5
+    \end{lstlisting}
+
+    \subsection{map}
+    \begin{lstlisting}
+    map<string, int> mp;
+    mp["haruto] = 12;
+    mp["yuto"] = 13;
+    cout << mp["haruto"] << endl; // 12
+    \end{lstlisting}
+
+    \subsection{set}
+    \begin{lstlisting}
+    set<int> st;
+    // [1, 2]を追加
+    st.insert(1);
+    st.insert(2);
+    st.count(1); // 1が含まれていたら1を返す
+    st.erase(1); // 1を削除
+    cout << *st.begin() << endl; // 2
+    \end{lstlisting}
+
+    
     \subsection{二分探索}
     \begin{lstlisting}
     vector<int> a = { 1,4,4,7,7,8,8,11,13,19};
