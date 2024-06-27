@@ -99,6 +99,11 @@
     \end{lstlisting}
 
     \section{データ構造}
+    \subsection{set}
+    \subsection{map}
+    \subsection{stack}
+    \subsection{queue}
+    \subsection{priority queue}
     \subsection{二分探索}
     \begin{lstlisting}
     vector<int> a = { 1,4,4,7,7,8,8,11,13,19};
@@ -180,7 +185,7 @@
     }
     \end{lstlisting}
 
-    \subsection{BIT}
+    \subsection{BIT  (Fenwick Tree)}
     \begin{lstlisting}
     // 数列a(a[0],a[1],…,a[n-1])についての区間和と点更新を扱う
     // 区間和,点更新,二分探索はO(log{n})
@@ -218,17 +223,17 @@
             return s;
         }
     
-        //a[0]+a[1]+…+a[i]>=xとなる最小のiを求める(任意のkでa[k]>=0が必要)
+    //a[0]+a[1]+…+a[i]>=xとなる最小のiを求める(任意のkでa[k]>=0が必要)
         ll lower_bound(ll x){
             if(x<=0){
-                //xが0以下の場合は該当するものなし→0を返す
+    //xが0以下の場合は該当するものなし→0を返す
                 return 0;
             }else{
                 ll i=0;ll r=1;
-                //最大としてありうる区間の長さを取得する
-                //n以下の最小の二乗のべき(BITで管理する数列の区間で最大のもの)を求める
+    // 最大としてありうる区間の長さを取得する
+    // n以下の最小の二乗のべき(BITで管理する数列の区間で最大のもの)を求める
                 while(r<n) r=r<<1;
-                //区間の長さは調べるごとに半分になる
+    //区間の長さは調べるごとに半分になる
                 for(int len=r;len>0;len=len>>1) {
                     //その区間を採用する場合
                     if(i+len<n && a[i+len]<x){
@@ -241,24 +246,147 @@
         }
     };
     \end{lstlisting}
-    \section*{Example C++ Code 3}
+    \section{Graph}
+
+    \subsection{深さ優先探索 (再帰関数型)}
     \begin{lstlisting}
-    #include <map>
-    #include <string>
-    using namespace std;
-
-    int main() {
-        map<string, int> ages;
-        ages["Alice"] = 30;
-        ages["Bob"] = 25;
-        ages["Charlie"] = 35;
-
-        for (const auto &entry : ages) {
-            cout << entry.first << ": " << entry.second << endl;
+    // 深さ優先探索
+    vector<bool> seen;
+    void dfs(const Graph &G, int v) {
+        seen[v] = true; // v を訪問済にする
+    
+        // v から行ける各頂点 next_v について
+        for (auto next_v : G[v]) { 
+            // next_v が探索済だったらスルー
+            if (seen[next_v]) continue;
+            dfs(G, next_v); // 再帰的に探索
         }
-        return 0;
     }
     \end{lstlisting}
+
+    \subsection{深さ優先探索 (スタック型)}
+    \begin{lstlisting}
+    // 深さ優先探索
+    stack<int> st;
+    st.push(start);
+    while (!st.empty()) {
+        int v = st.top(); st.pop();
+        if (seen[v]) continue;
+        seen[v] = true;
+        for (auto next_v : G[v]) {
+            if (seen[next_v]) continue;
+            st.push(next_v);
+        }
+    }
+    \end{lstlisting}
+
+    \subsection{幅優先探索}
+    \begin{lstlisting}
+    // 幅優先探索
+    // 全頂点を「未訪問」に初期化
+    vector<int> dist(N, -1); 
+    queue<int> que;
+
+    // 初期条件 (頂点 0 を初期ノードとする)
+    dist[0] = 0;
+    que.push(0); // 0 を橙色頂点にする
+
+    // BFS 開始 (キューが空になるまで探索を行う)
+    while (!que.empty()) {
+        // キューから先頭頂点を取り出す
+        int v = que.front(); 
+        que.pop();
+
+        // v から辿れる頂点をすべて調べる
+        for (int nv : G[v]) {
+            // すでに発見済みの頂点は探索しない
+            if (dist[nv] != -1) continue; 
+
+            // 新たな白色頂点 nv について距離情報を更新してキューに追加する
+            dist[nv] = dist[v] + 1;
+            que.push(nv);
+        }
+    }
+    \end{lstlisting}
+
+    \subsection{ダイクストラ法}
+    \begin{lstlisting}
+    // 負の重みがない場合の最短経路を求める
+
+    // 辺を表す構造体
+    struct Edge{
+        long long to;
+        long long cost;
+        // その他、必要な情報があれば要素を追加
+    };
+    // 隣接リストを表す型
+    using Gpaph=vector<vector<Edge>>;
+    // 距離と頂点のペアを表す型
+    using Pair = pair<long long, long long>; 
+    // 暫定距離を格納する配列
+    vector<long long> dist; 
+    const long long INF = 1LL << 60;
+    
+    void dijkstra(const Graph& G, vector<long long>& dist, long long start){
+        priority_queue<Pair,vector<Pair>,greater<Pair>> Q;
+        dist.assign(G.size(),INF);
+        // dist[start]=0をして、qに(0,start)をpush
+        Q.emplace(dist[start]=0,start); 
+    
+        while(!Q.empty()){
+        Pair q=Q.top();
+        Q.pop();
+        long long d=q.first;
+        long long v=q.second;
+    
+        if(d>dist[v]) continue;
+    
+        for(const auto& edge:G[v]){
+            long long nextdist = d+edge.cost;
+            if(nextdist<dist[edge.to]){
+            Q.emplace(dist[edge.to]=nextdist,edge.to);
+            }
+        }
+        }
+    }
+    \end{lstlisting}
+
+    \subsection{ベルマンフォード法}
+    \begin{lstlisting}
+    // 負の重みがある場合の最短経路を求める
+    struct Edge {
+        long long from;
+        long long to;
+        long long cost;
+    };
+    using Edges = vector<Edge>;
+    const long long INF = 1LL << 60;
+    
+    /* bellman_ford(Es,s,t,dis)
+        入力: 全ての辺Es, 頂点数V, 開始点 s, 最短経路を記録するdis
+        出力: 負の閉路が存在するなら ture
+        計算量：O(|E||V|)
+        副作用：dis が書き換えられる
+    */
+    bool bellman_ford(const Edges &Es, int V, int s, vector<long long> &dis) {
+        dis.resize(V, INF);
+        dis[s] = 0;
+        int cnt = 0;
+        while (cnt < V) {
+            bool end = true;
+            for (auto e : Es) {
+                if (dis[e.from] != INF && dis[e.from] + e.cost < dis[e.to]) {
+                    dis[e.to] = dis[e.from] + e.cost;
+                    end = false;
+                }
+            }
+            if (end) break;
+            cnt++;
+        }
+        return (cnt == V);
+    }    
+    \end{lstlisting}
+
 
 
     % Pythonのセクションに切り替える
@@ -296,6 +424,8 @@
     alice = Person("Alice", 30)
     alice.greet()
     \end{lstlisting}
+
+    
 
 \end{multicols*}
 
