@@ -1,11 +1,11 @@
 # Fdb version 4
-["dvipdf"] 1719474065.40885 "latex-output/notebook.dvi" "latex-output/notebook.pdf" "latex-output/notebook" 1719474065.67409 0
-  "latex-output/notebook.dvi" 1719474065.36078 231344 3824082951530198740bb8bb4c403a41 "latex"
+["dvipdf"] 1719890039.15441 "latex-output/notebook.dvi" "latex-output/notebook.pdf" "latex-output/notebook" 1719890039.41976 0
+  "latex-output/notebook.dvi" 1719890039.10577 243900 4c9e942bda4b4dff0bb39a934e1fae2a "latex"
   (generated)
   "latex-output/notebook.pdf"
   (rewritten before read)
-["latex"] 1719474064.89452 "/Users/iwaharut/Desktop/icpc notebook/notebook.tex" "latex-output/notebook.dvi" "notebook" 1719474065.67358 0
-  "/Users/iwaharut/Desktop/icpc notebook/notebook.tex" 1719474064.7232 13915 73b7600968e831358b0c0af01d6f8d99 ""
+["latex"] 1719890038.64548 "/Users/iwaharut/Desktop/icpc notebook/notebook.tex" "latex-output/notebook.dvi" "notebook" 1719890039.41935 0
+  "/Users/iwaharut/Desktop/icpc notebook/notebook.tex" 1719890038.4822 14604 547188135916593511fb29548df651fb ""
   "/usr/local/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth10.tfm" 1463434352 1196 5981e79c37b2cfd27b3612a6783cd4b6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/tfm/ptex-fonts/standard/goth8.tfm" 1463434352 1196 f76ab7ae43ed1dfe29b9e6ec2933fdb4 ""
@@ -52,9 +52,9 @@
   "/usr/local/texlive/2023/texmf-var/web2c/euptex/platex.fmt" 1708840765 8156258 b430bfcaa1694f54d6e3eeba362a2f2c ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "jlisting.sty" 1513299536 6230 9fa8fe97d5afbd5a433990256cc4d5a3 ""
-  "latex-output/notebook.aux" 1719474065.36012 2061 6a19d18c099e2d53723d35b70c9c1977 "latex"
-  "latex-output/notebook.toc" 1719474065.36074 1250 05779bca71b6906335f28370c3fc1136 "latex"
-  "notebook.tex" 1719474064.7232 13915 73b7600968e831358b0c0af01d6f8d99 ""
+  "latex-output/notebook.aux" 1719890039.10494 2358 5b71db5159a3532b0ce98735319bde2d "latex"
+  "latex-output/notebook.toc" 1719890039.10574 1424 9cc5f593a5b4a0ce8e186cde9802a3bb "latex"
+  "notebook.tex" 1719890038.4822 14604 547188135916593511fb29548df651fb ""
   (generated)
   "latex-output/notebook.aux"
   "latex-output/notebook.dvi"

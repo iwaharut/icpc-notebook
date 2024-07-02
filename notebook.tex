@@ -62,7 +62,7 @@
     \section{C++ Preparation}
     \subsection{C++ Compiler}
     \begin{lstlisting}
-    g++ -std=c++17 test.cpp -o
+    g++ -std=c++17 test.cpp
     \end{lstlisting}
 
     \subsection{C++ Execution}
@@ -73,10 +73,15 @@
     \subsection{C++ Template}
     \begin{lstlisting}
     #include <bits/stdc++.h>
+    #include <atcoder/all>
     using namespace std;
+    using namespace atcoder;
     using ll = long long;
     using ull = unsigned long long;
     using Graph = vector<vector<int>>;
+    // int 2*10e9
+    // long long 9*10e18
+    // unsigned long long 1*10e19
     constexpr int INF = 1e9;
     constexpr ll LLINF = 4e18;
     #define for_(i,a,b) for(int i=(a);i<(b);++i)
@@ -161,24 +166,13 @@
     cout << *st.begin() << endl; // 2
     \end{lstlisting}
 
-    
-    \subsection{二分探索}
+    \subsection{tuple}
     \begin{lstlisting}
-    vector<int> a = { 1,4,4,7,7,8,8,11,13,19};
-    // lower_bound:key以上の値が初めて現れる位置
-    auto iter = lower_bound(all(a),4);
-    // key以上の最小の値を出力
-    cout << *iter << endl; // 4
-    // key以上の最小の値が初めて現れる位置を出力
-    cout << a.begin() - iter << endl; // 1
-
-    // upper_bound:keyより大きい値が初めて現れる位置
-    auto iter1 = upper_bound(all(a), 4);
-    // keyより大きい最小の値を出力
-    cout << *iter1 << endl; // 7
-    // keyより大きい最小の値が初出する位置を出力
-    cout << a.begin() - iter1 << endl; // 3
-
+    tuple<int, string, long long> tp;
+    tp = {20, "kindai", 100000};
+    // 要素のアクセス
+    cout << get<0>(tp) << endl; // 20
+    cout << get<1>(tp) << endl; // kindai
     \end{lstlisting}
 
     \subsection{Union-Find}
@@ -445,6 +439,38 @@
     }    
     \end{lstlisting}
 
+    \section{探索}
+    \subsection{二分探索}
+    \begin{lstlisting}
+    vector<int> a = { 1,4,4,7,7,8,8,11,13,19};
+    // lower_bound:key以上の値が初めて現れる位置
+    auto iter = lower_bound(all(a),4);
+    // key以上の最小の値を出力
+    cout << *iter << endl; // 4
+    // key以上の最小の値が初めて現れる位置を出力
+    cout << a.begin() - iter << endl; // 1
+
+    // upper_bound:keyより大きい値が初めて現れる位置
+    auto iter1 = upper_bound(all(a), 4);
+    // keyより大きい最小の値を出力
+    cout << *iter1 << endl; // 7
+    // keyより大きい最小の値が初出する位置を出力
+    cout << a.begin() - iter1 << endl; // 3
+
+    \end{lstlisting}
+
+    \subsection{bit全探索}
+    \begin{lstlisting}
+    for(int bit = 0; bit < (1 << n); bit++){
+        // データ数nのbit全探索
+        for(int i = 0; i < n; i++){
+            if(bit & (1 << i)){
+                // 処理を書く
+            }
+        }
+    }
+    \end{lstlisting}
+
 
 
     % Pythonのセクションに切り替える
@@ -482,6 +508,8 @@
     alice = Person("Alice", 30)
     alice.greet()
     \end{lstlisting}
+
+
 
     
 
