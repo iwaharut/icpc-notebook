@@ -175,6 +175,21 @@
     cout << get<1>(tp) << endl; // kindai
     \end{lstlisting}
 
+    \subsection{string}
+    \begin{lstlisting}
+    string S = "TUNA";
+    // 文字列の長さを取得
+    cout << S.size() << endl; // 4
+    // 文字列が空か判定
+    if(S.empty()) // 空ならtrue
+    // 文字列の分割 1文字目以降を取得
+    cout << S.substr(1) << endl; // UNA
+    cout << S.substr(1, 2) << endl; // UN
+    // 文字列の削除 1文字明光を削除
+    cout << S.erase(1) << endl; // T
+
+    \end{lstlisting}
+
     \subsection{Union-Find}
     \begin{lstlisting}
     // Union-Find
@@ -299,6 +314,8 @@
     };
     \end{lstlisting}
     \section{Graph}
+
+    \subsection{二部グラフ判定}
 
     \subsection{深さ優先探索 (再帰関数型)}
     \begin{lstlisting}
@@ -471,6 +488,99 @@
     }
     \end{lstlisting}
 
+    \subsection{順列全探索}
+    \begin{lstlisting}
+    vector<int> A(4);
+    A = [1, 2, 3, 4];
+    do{
+        // ここに処理を書く
+    }while(next_permutation(A.begin(), A.end()));
+    \end{lstlisting}
+
+
+    \section{その他}
+    \subsection{素数判定}
+    \begin{lstlisting}
+    // エラトステネスの篩 O(N)
+    vector<bool> Eratosthenes(int N) {
+        // テーブル
+        vector<bool> isprime(N+1, true);
+    
+        // 0, 1 は予めふるい落としておく
+        isprime[0] = isprime[1] = false;
+    
+        // ふるい
+        for (int p = 2; p <= N; ++p) {
+            // 合成数であるものはスキップする
+            if (!isprime[p]) continue;
+    
+            // p以外のpの倍数から素数ラベルを剥奪
+            for (int q = p * 2; q <= N; q += p) {
+                isprime[q] = false;
+            }
+        }
+    
+        // 1 以上 N 以下の整数が素数かどうか
+        return isprime;
+    }
+    \end{lstlisting}
+
+    \subsection{繰返し二乗法}
+    \begin{lstlisting}
+    long long pow(long long x, long long n) {
+        long long ret = 1;
+        while (n > 0) {
+            // nの最下位bitが1ならばx^(2^i)をかける
+            if (n & 1) ret *= x;  
+            x *= x;
+            n >>= 1;  // n を1bit 左にずらす
+        }
+        return ret;
+    }
+    \end{lstlisting}
+
+    \subsection{余剰を取る繰返し二乗法}
+    \begin{lstlisting}
+    const int MOD = 1000000007;
+    long long pow(long long x, long long n) {
+        long long ret = 1;
+        while (n > 0) {
+            // nの最下位bitが1ならばx^(2^i)をかける
+            if (n & 1) ret = ret * x % MOD;  
+            x = x * x % MOD;
+            n >>= 1;  // n を1bit 左にずらす
+        }
+        return ret;
+    }
+    \end{lstlisting}
+
+    \subsection{modの逆元}
+    \begin{lstlisting}
+    // mod. m での a の逆元 a^{-1} を計算する
+    long long modinv(long long a, long long m) {
+        long long b = m, u = 1, v = 0;
+        while (b) {
+            long long t = a / b;
+            a -= t * b; swap(a, b);
+            u -= t * v; swap(u, v);
+        }
+        u %= m;
+        if (u < 0) u += m;
+        return u;
+    }
+    \end{lstlisting}
+
+    \subsection{modintの使い方}
+    \begin{lstlisting}
+    using mint = modint998244353;
+
+    int main(){
+        mint ans = 4321;
+        ans /= 9876;
+        // 4321 / 9876 mod 998244353を出力
+        cout << ans.val() << endl;
+    }
+    \end{lstlisting}
 
 
     % Pythonのセクションに切り替える
