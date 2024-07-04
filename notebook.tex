@@ -319,6 +319,25 @@
     \section{Graph}
 
     \subsection{二部グラフ判定}
+    \begin{lstlisting}
+    // 二部グラフ判定
+    vector<int> color;
+    // color.assign(n, -1)とする必要がある．
+    bool dfs(const Graph &G, int v, int cur = 0) {
+        color[v] = cur;
+        for (auto next_v : G[v]) {
+            // 隣接頂点がすでに色確定していた場合
+            if (color[next_v] != -1) {
+                if (color[next_v] == cur) return false; // 同じ色が隣接したらダメ
+                continue;
+            }
+    
+            // 隣接頂点の色を変えて、再帰的に探索 (一回でも false が返ってきたら false)
+            if (!dfs(G, next_v , 1 - cur)) return false;
+        }
+        return true;
+    }
+    \end{lstlisting}
 
     \subsection{深さ優先探索 (再帰関数型)}
     \begin{lstlisting}
