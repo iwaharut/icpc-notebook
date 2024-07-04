@@ -31,20 +31,18 @@
 \contentsline {subsection}{\numberline {5.4}modの逆元}{5}{}%
 \contentsline {subsection}{\numberline {5.5}modintの使い方}{5}{}%
 \contentsline {part}{第II部\hspace {1zw}Python}{6}{}%
-\contentsline {section}{\numberline {1}Python Preparation}{6}{}%
-\contentsline {subsection}{\numberline {1.1}Python Compiler}{6}{}%
-\contentsline {subsection}{\numberline {1.2}Python Execution}{6}{}%
-\contentsline {section}{\numberline {2}データ構造}{6}{}%
-\contentsline {subsection}{\numberline {2.1}UnionFind}{6}{}%
-\contentsline {section}{\numberline {3}Graph}{6}{}%
-\contentsline {subsection}{\numberline {3.1}深さ優先探索(再帰関数型)}{6}{}%
-\contentsline {subsection}{\numberline {3.2}深さ優先探索(スタック型)}{6}{}%
-\contentsline {subsection}{\numberline {3.3}幅優先探索}{7}{}%
-\contentsline {subsection}{\numberline {3.4}ダイクストラ法}{7}{}%
-\contentsline {subsection}{\numberline {3.5}ベルマンフォード法}{7}{}%
-\contentsline {section}{\numberline {4}探索}{8}{}%
-\contentsline {subsection}{\numberline {4.1}二分探索}{8}{}%
-\contentsline {subsection}{\numberline {4.2}bit全探索}{8}{}%
-\contentsline {subsection}{\numberline {4.3}順列全探索}{8}{}%
-\contentsline {section}{\numberline {5}その他}{8}{}%
-\contentsline {subsection}{\numberline {5.1}素数判定}{8}{}%
+\contentsline {subsection}{\numberline {0.6}Python Execution}{6}{}%
+\contentsline {section}{\numberline {1}データ構造}{6}{}%
+\contentsline {subsection}{\numberline {1.1}UnionFind}{6}{}%
+\contentsline {section}{\numberline {2}Graph}{6}{}%
+\contentsline {subsection}{\numberline {2.1}深さ優先探索(再帰関数型)}{6}{}%
+\contentsline {subsection}{\numberline {2.2}深さ優先探索(スタック型)}{6}{}%
+\contentsline {subsection}{\numberline {2.3}幅優先探索}{7}{}%
+\contentsline {subsection}{\numberline {2.4}ダイクストラ法}{7}{}%
+\contentsline {subsection}{\numberline {2.5}ベルマンフォード法}{7}{}%
+\contentsline {section}{\numberline {3}探索}{8}{}%
+\contentsline {subsection}{\numberline {3.1}二分探索}{8}{}%
+\contentsline {subsection}{\numberline {3.2}bit全探索}{8}{}%
+\contentsline {subsection}{\numberline {3.3}順列全探索}{8}{}%
+\contentsline {section}{\numberline {4}その他}{8}{}%
+\contentsline {subsection}{\numberline {4.1}素数判定}{8}{}%
